@@ -1,0 +1,59 @@
+@baseUrl = http://localhost:3002/api/mails
+@adminUrl = http://localhost:3002/api/admin
+@adminAccessToken = a
+@userAccessToken = a
+
+### Create Mail (User)
+POST {{baseUrl}}/
+Authorization: Bearer {{userAccessToken}}
+Content-Type: application/json
+
+{
+  "id_pengirim": 1,
+  "url_file_surat": "http://example.com/surat.pdf",
+  "subject_surat": "Surat Tugas Workshop"
+}
+
+### Get Mails by User
+GET {{baseUrl}}/user/1
+Authorization: Bearer {{userAccessToken}}
+
+### Get Mail by ID
+GET {{baseUrl}}/1
+Authorization: Bearer {{userAccessToken}}
+
+### Get Mail History
+GET {{baseUrl}}/1/history
+Authorization: Bearer {{userAccessToken}}
+
+### Get All Mails (Admin)
+GET {{adminUrl}}/
+Authorization: Bearer {{adminAccessToken}}
+
+### Update Mail Status (Admin)
+PUT {{adminUrl}}/1/status
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "status": "disetujui",
+  "alasan": null
+}
+
+### Reject Mail (Admin)
+PUT {{adminUrl}}/1/status
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "status": "ditolak",
+  "alasan": "Format surat tidak sesuai"
+}
+
+### Get Mail Stats (Admin)
+GET {{adminUrl}}/stats
+Authorization: Bearer {{adminAccessToken}}
+
+### Get Latest Status for All Mails (Admin)
+GET {{adminUrl}}/latest-status
+Authorization: Bearer {{adminAccessToken}}

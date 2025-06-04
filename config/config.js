@@ -1,13 +1,13 @@
 export default {
   development: {
-    username: 'ssigngo_user',
+    username: 'assigngo_user',
     password: 'pass123',
     database: 'assigngo',
     host: '146.148.108.234',
     dialect: 'mysql'
   },
   test: {
-    username: 'ssigngo_user',
+    username: 'assigngo_user',
     password: 'pass123',
     database: 'assigngo',
     host: '146.148.108.234',

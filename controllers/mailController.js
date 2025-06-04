@@ -1,5 +1,5 @@
 import db from '../models/index.js';
-import mailService from '../services/mailService.js';
+import * as mailService from '../services/mailService.js';
 
 const { Mail, History } = db;
 
